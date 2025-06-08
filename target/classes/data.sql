@@ -1,17 +1,10 @@
--- Usuário admin padrão (senha: "admin123" criptografada)
-INSERT INTO users (email, password, is_admin, created_at)
+-- Enquete de exemplo associada ao admin
+INSERT INTO polls (title, description, end_date, status, creator_id, created_at)
 VALUES (
-    'admin@voting.com',
-    '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', -- bcrypt("admin123")
-    true,
-    NOW()
-);
-
--- Usuário comum (senha: "user123")
-INSERT INTO users (email, password, is_admin, created_at)
-VALUES (
-    'user@voting.com',
-    '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-    false,
+    'Qual é a melhor linguagem de programação?',
+    'Vote na sua linguagem preferida para desenvolvimento backend',
+    DATE_ADD(NOW(), INTERVAL 7 DAY),
+    'ACTIVE',
+    1, -- ID do admin@voting.com
     NOW()
 );
